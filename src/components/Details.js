@@ -2,9 +2,8 @@ import React from "react";
 
 function Details(props) {
   const { title, artist, img_src } = props.song;
-  const MAX_ARTIST_LENGTH = 20; // Maximum length for artist text
+  const MAX_ARTIST_LENGTH = 20;
 
-  // Truncate the artist text if it exceeds the maximum length
   const truncatedArtist =
     artist.length > MAX_ARTIST_LENGTH
       ? artist.substring(0, MAX_ARTIST_LENGTH) + "..."

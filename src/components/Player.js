@@ -71,7 +71,7 @@ function Player(props) {
       <p className={emotionDetectedClass} style={{ color: "white" }}>
         Emotion detected: {props.emotion} {emotionEmoji}
       </p>
-      <Details song={props.songs[props.currentSongIndex]} />
+      <Details song={props.songs[props.array[props.currentSongIndex]]} />
       <Controls
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
@@ -79,16 +79,16 @@ function Player(props) {
       />
       <audio
         className="c-player--audio"
-        src={props.songs[props.currentSongIndex].src}
+        src={props.songs[props.array[props.currentSongIndex]].src}
         ref={audioEl}
         controls
       ></audio>
       <p>
         Next up:{" "}
-        <span>
-          {props.songs[props.nextSongIndex].title} by{" "}
-          {props.songs[props.nextSongIndex].artist}
-        </span>
+        <span>{props.songs[props.array[props.nextSongIndex]].title}</span>
+      </p>
+      <p>
+        <span> by {props.songs[props.array[props.nextSongIndex]].artist}</span>
       </p>
     </div>
   );

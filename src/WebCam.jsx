@@ -11,6 +11,7 @@ const WebCam = () => {
   const [showVideo, setShowVideo] = useState(true);
   const [showCanvas, setShowCanvas] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [array, setArray] = useState([]);
 
   useEffect(() => {
     getUserCamera();
@@ -86,6 +87,22 @@ const WebCam = () => {
       });
   };
 
+  const create_array = () => {
+    let i = 1;
+    let max = 8;
+    const rand = [];
+    while (i <= max) {
+      let randNum = Math.floor(Math.random() * max);
+      if (rand.indexOf(randNum) !== -1) {
+        continue;
+      }
+      rand.push(randNum);
+      i++;
+    }
+
+    setArray(rand);
+  };
+
   if (emotion.length === 0) {
     return (
       <div className="web_cam_container">
@@ -114,7 +131,18 @@ const WebCam = () => {
       </div>
     );
   } else {
-    return <PlayVideo emotion={emotion} />;
+    let i = 1;
+    let max = 8;
+    const rand = [];
+    while (i <= max) {
+      let randNum = Math.floor(Math.random() * max);
+      if (rand.indexOf(randNum) !== -1) {
+        continue;
+      }
+      rand.push(randNum);
+      i++;
+    }
+    return <PlayVideo emotion={emotion} array={rand} />;
   }
 };
 
